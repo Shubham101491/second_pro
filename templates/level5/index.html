@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% if registered %}
+    <h1>Thanks for register</h1>
+    
+    {% else %}
+    <h4>Welcome Please Fill the Form</h4>
+    <!--use enctype="multipart/form-data" for upload profile pic  -->
+    <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{userform.as_p}}
+        {{profileform.as_p}}
+        <button type="submit">Submit Here</button>
+
+        <a href="{{BASE_URL}}login">Login Here</a>
+    </form>
+    {% endif %}
+</body>
+
+</html>
